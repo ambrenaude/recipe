@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header> <!--à l'évènement, on active la fonction onNavigate en fonction du featureSelect-->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes><!--on met une condition pour n'afficher que recipe si le loadedfeature = recipe-->
+      <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list><!--on met une condition pour n'afficher que shopping-list si le loadedfeature != recipe-->
     </div>
   </div>
 </div>
